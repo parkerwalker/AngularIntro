@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="vendors/angular.min.js" charset="utf-8"></script>
+  <script src="scripts/client.js" charset="utf-8"></script>
+  <title>Angular Activity</title>
+</head>
+<body ng-app='myApp'>
+  <h2>NG Launch</h2>
+  <div ng-controller='AngularActivity as aa'>
+    <input type="text" ng-model="aa.firstNameIn" placeholder="First Name"/>
+    <input type="text" ng-model="aa.lastNameIn" placeholder="Laste Name"/>
+    <input type="number" ng-model="aa.idNumberIn" placeholder="ID Number"/>
+    <input type="text" ng-model="aa.jobTitleIn" placeholder="Job Title"/>
+    <input type="number" ng-model="aa.salaryIn" placeholder="Annual Salary"/>
+    <button ng-click="aa.addEmployee()" >Submit</button>
+
+    <p ng-repeat="newEmployee in aa.employees">
+      {{newEmployee.firstName}}   {{newEmployee.lastName}}   {{newEmployee.idNumber}}   {{newEmployee.jobTitle}} {{newEmployee.salary}} <button ng-click='aa.removeEmployee($index)'>remove</button>
+    </p>
+    <div >
+      <p></p>
+      <p>Monthly Salary Amount for all employees</p>
+      <p>{{aa.monthlyAverageNumber}}</p>
+    </div>
+
+  </div>
+</body>
+</html>
